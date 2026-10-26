@@ -8,6 +8,7 @@
 | Créer / renouveler un mot de passe | Espace directeur > Membres et mots de passe |
 | La page de connexion | `js/05-connexion.js` |
 | L'interface après connexion | `css/05-espaces-connectes.css` et `js/06-espaces-connectes.js` |
+| Les formations partagées gestionnaire/participants | `js/13-formations.js`, `supabase-formations.sql` et les réglages Supabase de `config.js` |
 | Les comptes (membres, mots de passe protégés) | `js/10-comptes.js` |
 | L'envoi automatique | `js/11-reception.js` et `config.js` |
 | Les PDF (fiche d'inscription, dossier d'autorisation, rapports) | `js/07-pdf.js` |

@@ -90,3 +90,15 @@
 .cat svg{width:32px;height:32px;stroke:var(--orange);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .cat[aria-pressed=true]{border-color:var(--orange);background:var(--soft)}
 .cat small{color:var(--muted)}
+.training-list{display:grid;gap:14px}
+.training-card{border:1px solid var(--line);border-radius:14px;padding:16px}
+.training-card h3{margin:0 0 8px}
+.training-card p{white-space:pre-wrap}
+.training-meta{display:flex;flex-wrap:wrap;gap:8px 16px;color:var(--muted);font-size:14px}
+.training-weekdays{display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:8px;margin-top:8px}
+.training-weekdays label{display:flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:14px}
+.training-weekdays input{accent-color:var(--green)}
+.training-field{display:block;margin-top:12px;font-size:14px;font-weight:600}
+.training-field input,.training-field select,.training-field textarea{display:block;width:100%;margin-top:6px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);font:inherit}
+.training-field textarea{min-height:90px;resize:vertical}
+.training-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}

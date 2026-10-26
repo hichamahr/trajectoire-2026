@@ -28,6 +28,18 @@ GUIDE-MODIFICATIONS.md   où modifier quoi
 3. Chaque inscription du Lycée Al Moutanabi, chaque rapport et chaque demande de partenariat arrive alors par e-mail, avec le **code d'inscription** à coller dans l'espace (Inscriptions > Importer) pour créer le dossier « en attente ».
    Pour que le gestionnaire reçoive aussi les e-mails : transfert automatique depuis la boîte du directeur.
 
-## Limite à connaître
-Les comptes et dossiers créés dans l'espace sont enregistrés dans le navigateur de la personne qui les crée (pas de base de données). Pour que le directeur, les gestionnaires et les formateurs voient les mêmes données depuis leurs propres appareils, il faut une base de données en ligne (Supabase) : étape suivante.
+## Formations partagées (Supabase)
+Les formations sont enregistrées dans Supabase et non dans `localStorage`. Tant que Supabase n'est pas configuré, la section affiche un message de configuration et ne prétend pas synchroniser les données. Les inscriptions, comptes et autres données existants restent locaux et leur fonctionnement n'est pas modifié.
+
+1. Crée un projet Supabase et exécute le fichier [`supabase-formations.sql`](./supabase-formations.sql) dans **SQL Editor**.
+2. Dans **Authentication > Users**, crée un utilisateur avec l'e-mail et le mot de passe du gestionnaire autorisé. Désactive les inscriptions publiques dans les paramètres d'authentification.
+3. Dans **Table Editor > manager_access**, ajoute une ligne avec l'UUID de cet utilisateur. Seul un administrateur du projet Supabase doit pouvoir modifier cette table.
+4. Copie l'URL du projet et sa clé **anon/public** dans `supabaseUrl` et `supabaseAnonKey` de `config.js`. N'utilise jamais la clé `service_role` dans le site.
+5. Publie ces fichiers sur ton hébergement habituel, puis ouvre la section « Gestion des formations ». Le gestionnaire se connecte avec son compte Supabase distinct. Les participants consultent les publications depuis « Mes formations ».
+6. Après toute évolution du schéma, réexécute le script SQL : il est idempotent et ajoute le champ de lieu sans supprimer les formations. Les nouvelles formations doivent choisir l'un des deux lieux proposés.
+
+Les règles RLS du script autorisent côté base la lecture des seules formations publiées et limitent création, modification et suppression aux utilisateurs authentifiés présents dans `manager_access`. Les informations des formations publiées sont lisibles par l'API publique; n'y saisis aucune donnée personnelle. L'Association Iligh affiche son adresse et un lien Google Maps construit à partir de celle-ci, sans coordonnées inventées.
+
+Pour tester, crée une formation depuis le compte gestionnaire, puis connecte-toi au site avec un compte participant validé sur un autre navigateur/appareil. L'apparition entre appareils, ainsi que l'authentification et les règles RLS, ne peuvent pas être vérifiées tant que le projet Supabase, son schéma et le compte gestionnaire ne sont pas configurés. Le reste des données de l'application demeure enregistré localement.
+
 Données de mineurs : accord des parents et respect de la loi 09-08 (CNDP).

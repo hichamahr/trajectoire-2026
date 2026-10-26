@@ -15,5 +15,5 @@ function lcat(c){ls={cat:c};renderLogin()}
 function afterLogin(a){me=a;ls={cat:null};ptab='dash';tab='x';ot='mem';asK=0;renderLogin();renderSpace();go('space')}
 function loginP(e){e.preventDefault();const c=$('lc').value.trim().toUpperCase(),a=ACC.find(x=>x.r==='student'&&x.u.toUpperCase()===c);if(a){afterLogin(a);return false}$('lerr').textContent=PEND.some(q=>q.id.toUpperCase()===c)?t('loginPend'):t('badCode');return false}
 async function loginT(e){e.preventDefault();const u=$('lu').value.trim().toLowerCase(),a=ACC.find(x=>x.r!=='student'&&x.u.toLowerCase()===u);let ok=false;if(a&&!a.off){try{ok=(await hashPw($('lp').value,a.salt))===a.hash}catch(err){}}if(!ok){$('lerr').textContent=t('bad');return false}afterLogin(a);return false}
-function logout(){me=null;go('home')}
+function logout(){if(typeof signOutTrainingManager==='function')signOutTrainingManager();me=null;go('home')}
 function openLogin(r){ls={cat:r==='student'?'p':'t'};renderLogin();go(me?'space':'login')}

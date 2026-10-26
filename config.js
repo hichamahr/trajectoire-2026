@@ -12,6 +12,11 @@ const CONFIG={
   // Exemple : 'https://formspree.io/f/abcdwxyz'   (vide = pas d'envoi automatique)
   formEndpoint:'',
 
+  // Supabase public configuration. The anon key is designed for browser use;
+  // never place a service_role key here.
+  supabaseUrl:'',
+  supabaseAnonKey:'',
+
   // Compte DIRECTEUR (le mot de passe n'est pas écrit ici : seulement son empreinte).
   owner:{u:'TRGD-DIR01',name:'Hicham Ahrarache',salt:'e775ab883a49dc24d94a586b54dd99c2',hash:'ae7a12dd1de38de5d128119ac35ec2b385496071bebb88aad90f0ac420edea2d'}
 };
