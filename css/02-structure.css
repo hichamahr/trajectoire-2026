@@ -1,0 +1,29 @@
+/* ============================================================
+   02-structure.css : En-tête, navigation, pied de page, sections.
+   ============================================================ */
+
+header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.logo{background:#FEFEFE;border-radius:10px;padding:4px 10px;display:block}
+.logo img{height:34px;display:block}
+.lang{display:flex;gap:4px;background:var(--soft);padding:3px;border-radius:99px}
+.lang button{border:0;background:none;padding:5px 12px;border-radius:99px;font-weight:600;font-size:13px}
+.lang button[aria-pressed=true]{background:var(--green);color:var(--on-green)}
+nav{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px}
+nav button{border:0;background:none;padding:8px 16px;border-radius:99px;font-weight:600;font-size:14px;white-space:nowrap;color:var(--muted)}
+nav button[aria-current=page]{background:var(--orange);color:#fff}
+section.v{display:none}
+footer{border-top:1px solid var(--line);padding-block:26px;color:var(--muted);font-size:13px}
+.foot{display:flex;flex-wrap:wrap;gap:18px 32px;justify-content:space-between;align-items:center}
+.soc{display:flex;gap:10px}
+.soc a{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--green);display:grid;place-items:center;color:var(--green)}
+.soc a:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+.soc svg,.ct svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ct{display:inline-flex;gap:8px;align-items:center;color:var(--text);text-decoration:none;font-weight:600;font-size:14px;margin-inline-end:18px}
+.ct svg{stroke:var(--orange)}
+.dash{padding-block:28px 40px}
+.hr{display:flex;align-items:center;gap:10px}
+.hb{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--green);background:none;border-radius:99px;padding:7px 14px;font-weight:700;font-size:14px;color:var(--text)}
+.hb svg,.btn.ic svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.hb[aria-current=page]{background:var(--green);color:var(--on-green)}
+.dash>.sec:first-child{margin-top:0}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Trajectoire مسار</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<link rel="stylesheet" href="css/01-base.css">
+<link rel="stylesheet" href="css/02-structure.css">
+<link rel="stylesheet" href="css/03-pages-publiques.css">
+<link rel="stylesheet" href="css/04-composants.css">
+<link rel="stylesheet" href="css/05-espaces-connectes.css">
+<link rel="stylesheet" href="css/06-mobile.css">
+</head>
+<body>
+<header><div class="wrap">
+ <div class="bar"><a class="logo" href="#" onclick="go('home');return false" aria-label="Trajectoire"><img data-logo alt="Trajectoire مسار"></a>
+ <div class="hr"><button class="hb" id="nSp" onclick="goSpace()"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span id="nSpT"></span></button><button class="hb" id="nOut" onclick="logout()" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H5v16h4M16 8l4 4-4 4M20 12H9"/></svg></button><div class="lang" role="group" aria-label="Langue"><button id="bfr" aria-pressed="true" onclick="setLang('fr')">FR</button><button id="bar" aria-pressed="false" onclick="setLang('ar')">العربية</button></div></div></div>
+ <nav aria-label="Navigation"><button data-v="home" onclick="go('home')" data-i="nHome"></button><button data-v="about" onclick="go('about')" data-i="nAbout"></button><button data-v="teamP" onclick="go('teamP')" data-i="nTeam"></button><button data-v="gallery" onclick="go('gallery')" data-i="nGal"></button><button data-v="plans" onclick="go('plans')" data-i="nPlans"></button><button data-v="partner" onclick="go('partner')" data-i="nPar"></button></nav>
+</div></header>
+
+<main>
+<section class="v on" id="home">
+ <div class="wrap">
+  <div class="hero">
+   <div>
+    <h1>Trajectoire <span>مسار</span></h1>
+    <p class="slogan" data-i="slogan"></p><p class="slogan2" data-i="slogan2"></p>
+    <p class="lead" data-i="lead"></p>
+    <div class="ctas"><button class="btn o ic" onclick="openLogin('student')"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span data-i="ctaStu"></span></button><button class="btn ic" onclick="go('partner')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10l9-6 9 6M5 10v9h14v-9M9 19v-5h6v5"/></svg><span data-i="ctaPar"></span></button></div>
+   </div>
+   <div class="path">
+    <svg viewBox="0 0 420 330" role="img" aria-label="Trajectoire">
+     <path id="tp" d="M36 292 C130 292 90 200 180 200 S260 108 330 108 S385 46 398 34" fill="none" stroke="#FDFBF7" stroke-opacity=".28" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 12"/>
+     <g id="nodes"></g><circle id="dot" r="9" fill="#FF6B00"/>
+    </svg>
+    <div class="cap" id="cap" aria-live="polite"></div>
+   </div>
+  </div>
+
+  <div class="why"><h2 data-i="whyT"></h2><p data-i="whyP"></p><small data-i="whyA"></small></div>
+  <div class="sec"><h2 data-i="pilTitle"></h2><p data-i="pilSub"></p><div class="pillars" id="pillars"></div></div>
+
+  <div class="cta-band"><div><h2 style="margin:0 0 4px" data-i="bandT"></h2><span data-i="bandS"></span></div>
+   <div class="ctas"><button class="btn o ic" onclick="openLogin('student')"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span data-i="ctaStu"></span></button><button class="btn ic" onclick="go('partner')"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10l9-6 9 6M5 10v9h14v-9M9 19v-5h6v5"/></svg><span data-i="ctaPar"></span></button></div></div>
+ </div>
+</section>
+
+<section class="v" id="about"><div class="wrap dash"><h2 data-i="aboutT"></h2>
+<div class="fcard"><img class="fph" src="assets/images/fondateur.jpg" alt="Hicham Ahrarache"><div><h3 style="font-size:26px;margin:0">Hicham Ahrarache</h3><p style="color:var(--orange);font-weight:700;margin:4px 0 14px" data-i="founRole"></p><p data-i="abP1"></p><p data-i="abP2"></p></div></div>
+<div class="kpis" style="margin-top:26px"><div class="kpi h"><b>4</b><span data-i="k1"></span></div><div class="kpi"><b>8</b><span data-i="k2"></span></div><div class="kpi"><b>2h30</b><span data-i="k3"></span></div><div class="kpi"><b>13-18</b><span data-i="k4"></span></div></div></div></section>
+<section class="v" id="teamP"><div class="wrap dash"><div class="sec"><h2 data-i="teamT"></h2><p data-i="teamSub"></p><div class="team" id="team"></div></div>
+  </div></section>
+<section class="v" id="gallery"><div class="wrap dash"><div class="sec"><h2 data-i="galT"></h2><p data-i="galSub"></p><div class="gal" id="gal"></div></div>
+  </div></section>
+<section class="v" id="plans"><div class="wrap dash"><div class="sec"><h2 data-i="offTitle"></h2>
+   <div class="offers">
+    <div class="offer c"><span class="tag" data-i="offC0"></span><h3 style="margin-top:12px;font-size:22px" data-i="offC1"></h3>
+     <div class="price"><span data-i="offCp"></span></div>
+     <ul><li data-i="offC2"></li><li data-i="offC3"></li><li data-i="offC4"></li></ul>
+     <button class="btn o" onclick="go('register')" data-i="ctaFree"></button></div>
+   </div>
+  </div>
+
+  </div></section>
+<section class="v" id="partner"><div class="wrap dash"><h2 data-i="parT"></h2><p style="color:var(--muted);margin:0 0 18px" data-i="parSub"></p>
+<div class="grid2"><form class="card lg" id="pform" onsubmit="return sendPartner(event)"><label><span data-i="parSchool"></span><input id="pn"></label><label><span data-i="parName"></span><input id="pc"></label><label><span data-i="parPhone"></span><input id="pp" type="tel" autocomplete="tel"></label><label><span data-i="parMail"></span><input id="pe" type="email" autocomplete="email"></label><label><span data-i="parMsg"></span><textarea id="pm" class="ta"></textarea></label><button class="btn o" type="submit" data-i="parSend"></button><div id="pmsg2" role="status" style="color:var(--orange);margin-top:10px;font-size:14px"></div></form>
+<div class="card" id="pdone" hidden style="align-self:start;text-align:center;padding:36px"><div style="width:60px;height:60px;border-radius:50%;background:var(--orange);display:grid;place-items:center;margin:0 auto 14px"><svg viewBox="0 0 24 24" width="30" height="30" stroke="#fff" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></div><h2 data-i="parThanks"></h2><p style="font-size:18px;font-weight:600;margin:0 0 12px" data-i="parThanks2"></p><p style="color:var(--muted);font-size:13px;margin:0 0 16px" data-i="parOk"></p><button class="btn" onclick="partnerAgain()" data-i="parAgain"></button></div>
+<div class="card" style="align-self:start"><h2 data-i="parWhy"></h2><ul style="padding-inline-start:20px;margin:0"><li style="margin-bottom:8px" data-i="parB1"></li><li style="margin-bottom:8px" data-i="offA3"></li><li style="margin-bottom:8px" data-i="offA4"></li><li data-i="parB4"></li></ul></div></div></div></section>
+<section class="v" id="register"><div class="wrap dash" style="max-width:820px" id="regIn"></div></section>
+<section class="v" id="login"><div class="wrap dash" style="max-width:820px" id="logIn"></div></section>
+<section class="v" id="space"><div class="wrap dash" id="spaceIn"></div></section>
+</main>
+<footer><div class="wrap foot"><div><b style="color:var(--text)" data-i="contact"></b><div style="margin-block:8px"><a class="ct" href="#" data-cfg="tel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span dir="ltr" data-cfg-text="phone">+212 6 00 00 00 00</span></a><a class="ct" href="#" data-cfg="mail"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span dir="ltr" data-cfg-text="contactEmail">contact@trajectoire.ma</span></a></div>Trajectoire مسار · Agadir · <span data-i="foot"></span></div>
+<div class="soc"><a href="#" data-cfg="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.500 6.500v.01"/></svg></a><a href="#" data-cfg="linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg></a><a href="#" data-cfg="facebook" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a><a href="#" data-cfg="mail" aria-label="Email"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a></div></div></footer>
+<script src="config.js"></script>
+<script src="js/logos.js"></script>
+<script src="js/01-textes.js"></script>
+<script src="js/02-donnees.js"></script>
+<script src="js/03-outils.js"></script>
+<script src="js/04-pages-publiques.js"></script>
+<script src="js/05-connexion.js"></script>
+<script src="js/06-espaces-connectes.js"></script>
+<script src="js/07-pdf.js"></script>
+<script src="js/08-inscription.js"></script>
+<script src="js/09-actions.js"></script>
+<script src="js/10-comptes.js"></script>
+<script src="js/11-reception.js"></script>
+<script src="js/12-demarrage.js"></script>
+</body>
+</html>

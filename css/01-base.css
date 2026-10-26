@@ -1,0 +1,19 @@
+/* ============================================================
+   01-base.css : Variables de couleurs, polices, base de la page.
+   ============================================================ */
+
+:root{--green:#0F3830;--orange:#FF6B00;--cream:#FDFBF7;--bg:#FFFFFF;--surface:#FFFFFF;--soft:#F6F3EA;--text:#0F3830;--muted:#58706a;--line:#E6E1D4;--on-green:#FDFBF7;--panel:#0F3830;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 110px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Montserrat','Cairo',system-ui,sans-serif;line-height:1.55}
+button{font:inherit;color:inherit}
+input,select,textarea{font:inherit;color:#111}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+h1{font-size:clamp(34px,6vw,60px);line-height:1.08;margin:0 0 14px;letter-spacing:-.02em;font-weight:800}
+h1 span{color:var(--orange)}
+h2{font-size:clamp(22px,3.4vw,32px);margin:0 0 8px;letter-spacing:-.01em}
+h3{margin:0 0 6px;font-size:17px}
+[hidden]{display:none!important}

@@ -1,0 +1,11 @@
+/* ============================================================
+   06-mobile.css : Mobile et tablette : se charge en dernier (860px, 600px, 480px).
+   ============================================================ */
+
+@media (max-width:860px){.fcard{grid-template-columns:1fr}.fph{max-width:280px}.brands{grid-template-columns:1fr}.team{grid-template-columns:repeat(2,1fr)}.gal{grid-template-columns:repeat(2,1fr)}.gal div:first-child{grid-column:span 2;grid-row:span 1}}
+@media (max-width:420px){.hb span{display:none}.hb{padding:8px 10px}}
+@media (max-width:600px){.frow{grid-template-columns:1fr}}
+@media (max-width:860px){.sbody{grid-template-columns:1fr}.side{flex-direction:row;overflow-x:auto;padding:6px 12px;border-inline-end:0;border-bottom:1px solid var(--line)}.ssearch,.sgrp{display:none}.mi span{white-space:nowrap}.mainc{padding:16px}.dgrid{grid-template-columns:1fr}.mods4{grid-template-columns:1fr 1fr}.slinks{display:none}.suser2 small{display:none}.stop{gap:10px}}
+@media (max-width:860px){.hero,.grid2,.offers{grid-template-columns:1fr}.pillars,.kpis{grid-template-columns:1fr 1fr}.hero{padding-top:28px}.grp{grid-template-columns:1fr 1fr}.grp>:last-child{grid-column:1/-1}}
+@media (max-width:480px){.pillars,.kpis{grid-template-columns:1fr}.offer,.cta-band{padding:22px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
